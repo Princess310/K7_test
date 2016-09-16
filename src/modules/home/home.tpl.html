@@ -1,0 +1,59 @@
+{{#each list}}
+<div class="feed-detail-card" data-id="{{id}}">
+    <header class="feed-detail-header">
+        <div class="user-icon-wrapper">
+            <img class="user-icon" src="{{#suitableImg avatar}}{{/suitableImg}}">
+            {{#check verify_status "===" 1}}
+            <span class="vip"><span class="iconfont icon-vip1"></span></span>
+            {{/check}}
+        </div>
+        <div class="user-info">
+            <div class="user-name">
+                {{{nickname}}}
+            </div>
+            <div class="user-role">
+                {{#check company "!==" ""}}
+                <span class="user-role-item">{{company}}</span>
+                {{/check}}
+                {{#check position "!==" ""}}
+                <span class="user-role-item">{{position}}</span>
+                {{/check}}
+            </div>
+            <div class="user-identity">
+                {{tag_identity_name}}
+            </div>
+        </div>
+        <article class="feed-detail-acion">
+            <div class="action-item">
+                <div class="iconfont icon-yaoyue"></div>
+                <div class="action-name">邀约</div>
+            </div>
+        </article>
+    </header>
+    <section class="feed-detail-content">
+        <article class="feed-detail-tags">
+            <div class="user-tags advantage-tags">
+                <div class="tags-name">优势</div>
+                <div class="tags-container">
+                    {{#each advantages}}
+                    <span class="tag-item">{{this}}</span>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="user-tags needs-tags">
+                <div class="tags-name">需求</div>
+                <div class="tags-container">
+                    {{#each needs}}
+                    <span class="tag-item">{{this}}</span>
+                    {{/each}}
+                </div>
+            </div>
+        </article>
+    </section>
+    <footer class="feed-detail-sub-info">
+        <span class="sub-item effect-item">影响力：<span class="effect-value">{{influence}}</span></span>
+        <span class="sub-item honesty-item">诚信等级<span class="honesty-bar-bg"><span class="honesty-bar" style="width: {{integrity_progress}}"></span></span><span class="honesty-rank">V{{integrity_level}}</span></span>
+        <span class="sub-item distance-item"><span class="iconfont icon-didian"></span>{{#parseDistance distance city_name}}{{/parseDistance}}</span>
+    </footer>
+</div>
+{{/each}}

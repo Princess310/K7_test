@@ -1,0 +1,88 @@
+{
+  "message": "获取匹配列表成功",
+  "list": [
+    {
+      "id": "5",
+      "avatar": "http://alijian-yaoyue-uploads-1.oss-cn-hangzhou.aliyuncs.com/avatar/5/146732714151418.jpg",
+      "nickname": "九歌当吟",
+      "position": "",
+      "intro": "",
+      "verify_status": "0",
+      "company": "",
+      "influence": "22",
+      "integrity_level": "0",
+      "integrity_progress": "0.00",
+      "tag_identity_name": "个体",
+      "im_account": "5786f5d3a3c70134581",
+      "city_name": "成都市",
+      "distance": 10373,
+      "advantages": [
+        "地政关系",
+        "招商"
+      ],
+      "needs": [
+        "招商",
+        "模式"
+      ]
+    },
+    {
+      "id": "9",
+      "avatar": "http://alijian-yaoyue-uploads-1.img-cn-hangzhou.aliyuncs.com/avatar/13730642313/146711299715163%3F1467112997.jpg",
+      "nickname": "刘一召",
+      "position": "",
+      "intro": "",
+      "verify_status": "0",
+      "company": "",
+      "influence": "0",
+      "integrity_level": "0",
+      "integrity_progress": "0.00",
+      "tag_identity_name": "经销商",
+      "im_account": "13730642313",
+      "city_name": "成都市",
+      "distance": 10765,
+      "advantages": [
+        "经销商",
+        "服务商",
+        "公司",
+        "厂商"
+      ],
+      "needs": [
+        "经销商",
+        "服务商",
+        "批发商",
+        "讲师"
+      ]
+    },
+    {
+      "id": "18",
+      "avatar": "http://alijian-yaoyue-uploads-1.oss-cn-hangzhou.aliyuncs.com/avatar/18/146726916762601.jpeg",
+      "nickname": "唐兴俊杰",
+      "position": "",
+      "intro": "",
+      "verify_status": "0",
+      "company": "",
+      "influence": "0",
+      "integrity_level": "0",
+      "integrity_progress": "0.00",
+      "tag_identity_name": "经销商",
+      "im_account": "15528288799",
+      "city_name": "成都市",
+      "distance": 10448,
+      "advantages": [
+        "经销商",
+        "服务商"
+      ],
+      "needs": [
+        "经销商",
+        "服务商"
+      ]
+    }
+  ],
+  "code": 200,
+  "page": {
+    "total_count": 20,
+    "page_count": 1,
+    "current_page": 2,
+    "per_page": 20
+  }
+}

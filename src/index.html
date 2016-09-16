@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>HiApp</title>
+</head>
+<body>
+<div class="statusbar-overlay"></div>
+<div class="panel-overlay"></div>
+
+<div class="views tabs toolbar-through">
+    <div id="homeView" class="view view-main tab active">
+        <div class="navbar">
+            <div class="navbar-inner">
+
+                <div class="left">
+                    成都市
+                </div>
+
+                <div class="center sliding">邀约</div>
+
+                <div class="right">
+                    <a href="#" class="open-send-popup link icon-only">
+                        <i class="iconfont icon-sousu"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="pages navbar-through">
+            <div data-page="homeView" class="page no-swipeback">
+                <div data-distance="50" class="page-content pull-to-refresh-content infinite-scroll">
+                    <div class="pull-to-refresh-layer">
+                        <div class="preloader"></div>
+                        <div class="pull-to-refresh-arrow"></div>
+                    </div>
+                    <div class="load-result"></div>
+                    <div class="home-timeline">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="businessView" class="view tab">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center sliding">商务圈</div>
+            </div>
+        </div>
+        <div class="pages navbar-through">
+            <div data-page="setting" class="page">
+                商务圈
+            </div>
+        </div>
+    </div>
+
+    <div id="contactView" class="view tab">
+
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center sliding">联系人</div>
+            </div>
+        </div>
+
+        <div class="pages navbar-through">
+            <div data-page="contactView" class="page contact-page">
+                <!-- Search bar -->
+                <form class="searchbar">
+                    <div class="searchbar-input">
+                        <input type="search">
+                        <a href="#" class="searchbar-clear"></a>
+                    </div>
+                    <a href="#" class="searchbar-cancel"></a>
+                </form>
+
+                <!-- Search bar overlay-->
+                <div class="searchbar-overlay"></div>
+
+                <div class="page-content">
+                    <div class="list-block contacts-list searchbar-found">
+                        <div class="list-group">
+                            <ul></ul>
+                        </div>
+                    </div>
+                    <div class="content-block searchbar-not-found" >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="settingView" class="view tab">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center sliding">个人中心</div>
+            </div>
+        </div>
+        <div class="pages navbar-through">
+            <div data-page="setting" class="page">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- toolbar start -->
+    <div class="toolbar tabbar tabbar-labels">
+        <div class="toolbar-inner">
+            <a href="#contactView" class="tab-link">
+                <i class="iconfont icon-xiaoxi1"></i>
+                <span class="tabbar-label">消息</span>
+            </a>
+
+            <a href="#businessView" class="tab-link">
+                <i class="iconfont icon-shangwuquan1"></i>
+                <span class="tabbar-label">商务圈</span>
+            </a>
+
+            <a href="#homeView" class="tab-link active">
+                <i class="iconfont icon-yaoyue"></i>
+                <span class="tabbar-label">邀约</span>
+            </a>
+
+            <a href="#settingView" class="tab-link">
+                <i class="iconfont icon-wo2">
+                    <!-- <span class="badge badge-red">4</span> -->
+                </i>
+                <span class="tabbar-label">我的</span>
+            </a>
+        </div>
+    </div>
+    <!-- toolbar end -->
+</div>
+
+<!-- Please ignore the 404 error when you are not running under PhoneGap environment or delete it. -->
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="lib/flexible.js"></script>
+
+</body>
+
+</html>
