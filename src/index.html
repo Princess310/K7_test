@@ -4,49 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>HiApp</title>
+    <title>邀约</title>
 </head>
 <body>
 <div class="statusbar-overlay"></div>
 <div class="panel-overlay"></div>
 
 <div class="views tabs toolbar-through">
-    <div id="homeView" class="view view-main tab active">
-        <div class="navbar">
-            <div class="navbar-inner">
-
-                <div class="left">
-                    成都市
-                </div>
-
-                <div class="center sliding">邀约</div>
-
-                <div class="right">
-                    <a href="#" class="open-send-popup link icon-only">
-                        <i class="iconfont icon-sousu"></i>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="pages navbar-through">
-            <div data-page="homeView" class="page no-swipeback">
-                <div data-distance="50" class="page-content pull-to-refresh-content infinite-scroll">
-                    <div class="pull-to-refresh-layer">
-                        <div class="preloader"></div>
-                        <div class="pull-to-refresh-arrow"></div>
-                    </div>
-                    <div class="load-result"></div>
-                    <div class="home-timeline">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
     <div id="businessView" class="view tab">
         <div class="navbar">
             <div class="navbar-inner">
@@ -61,7 +25,6 @@
     </div>
 
     <div id="contactView" class="view tab">
-
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="center sliding">联系人</div>
@@ -95,6 +58,42 @@
         </div>
     </div>
 
+    <div id="dashboardView" class="view view-main tab active">
+        <div class="navbar">
+            <div class="navbar-inner">
+
+                <div class="left">
+                    成都市
+                </div>
+
+                <div class="center sliding">邀约</div>
+
+                <div class="right">
+                    <a href="#" class="open-send-popup link icon-only">
+                        <i class="iconfont icon-sousu"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="pages navbar-through">
+            <div data-page="dashboardView" class="page no-swipeback">
+                <div data-distance="50" class="page-content pull-to-refresh-content infinite-scroll">
+                    <div class="pull-to-refresh-layer">
+                        <div class="preloader"></div>
+                        <div class="pull-to-refresh-arrow"></div>
+                    </div>
+                    <div class="load-result"></div>
+                    <div class="home-timeline">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <div id="settingView" class="view tab">
         <div class="navbar">
             <div class="navbar-inner">
@@ -121,7 +120,7 @@
                 <span class="tabbar-label">商务圈</span>
             </a>
 
-            <a href="#homeView" class="tab-link active">
+            <a href="#dashboardView" class="tab-link active">
                 <i class="iconfont icon-yaoyue"></i>
                 <span class="tabbar-label">邀约</span>
             </a>
@@ -137,10 +136,7 @@
     <!-- toolbar end -->
 </div>
 
-<!-- Please ignore the 404 error when you are not running under PhoneGap environment or delete it. -->
-<script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="lib/flexible.js"></script>
-
 </body>
 
 </html>

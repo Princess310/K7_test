@@ -1,7 +1,10 @@
 var appFunc = require('./appFunc'),
-    networkStatus = require('../components/networkStatus');
+    networkStatus = require('../components/networkStatus'),
+    jQ = require('jquery');
 
 module.exports = {
+
+    domainUrl: "http://192.168.0.122/api/entry",
 
     search: function(code, array){
         for (var i=0;i< array.length; i++){
@@ -29,58 +32,75 @@ module.exports = {
         return apiServer.replace(/&$/gi, '');
     },
 
-    simpleCall: function(options,callback){
-        var that = this;
+    ajax: function(method, path, data){
+        var apiUrl = this.domainUrl + '/index.php?r=';
+        var token = appFunc.getCookie("user_access_token");
+        var dfd = jQ.Deferred();
+        var method = method || "POST";
 
-        options = options || {};
-        options.data = options.data ? options.data : '';
-
-        //If you access your server api ,please user `post` method.
-        options.method = options.method || 'GET';
-        //options.method = options.method || 'POST';
-
-        if(appFunc.isPhonegap()){
-            //Check network connection
-            var network = networkStatus.checkConnection();
-            if(network === 'NoNetwork'){
-
-                hiApp.alert(i18n.error.no_network,function(){
-                    hiApp.hideIndicator();
-                    hiApp.hidePreloader();
-                });
-
-                return false;
-            }
+        if(token && token !== ""){
+            jQ.ajaxSetup({
+                headers: {
+                    'X-Access-Token': token
+                }
+            });
         }
 
-        $$.ajax({
-            url: that.getRequestURL(options) ,
-            method: options.method,
-            data: options.data,
-            success:function(data){
-                data = data ? JSON.parse(data) : '';
-
-                var codes = [
-                    {code:10000, message:'Your session is invalid, please login again',path:'/'},
-                    {code:10001, message:'Unknown error,please login again',path:'tpl/login.html'},
-                    {code:20001, message:'User name or password does not match',path:'/'}
-                ];
-
-                var codeLevel = that.search(data.err_code,codes);
-
-                if(!codeLevel){
-
-                    (typeof(callback) === 'function') ? callback(data) : '';
-
-                }else{
-
-                    hiApp.alert(codeLevel.message,function(){
-                        hiApp.hideIndicator();
-                        hiApp.hidePreloader();
-                    });
-                }
+        var jqXHR = jQ.ajax({
+            url: apiUrl + path,
+            type: method,
+            dataType: "json",
+            crossDomain: true,
+            data: data,
+            complete: function(XMLHttpRequest, textStatus){
+                // TODO: get the new x-access-token and set it to localStorage
+                // console.log("XMLHttpRequest", XMLHttpRequest.getAllResponseHeaders());
             }
         });
 
+        // --------- Dplus Record Data --------- //
+        // Try to record the user actions for Dpuls data
+        var dplus = dplus || null;
+        if(dplus != null){
+            var userId = app.getCookie("userid", userId);
+            if(path == "user/login" || path == "user/signup"){
+                dplus.track(path, {username: data.username});
+            }else {
+                dplus.track(path, $.extend(data, {userId: userId}));
+            }
+        }
+        // --------- /Dplus Record Data --------- //
+
+        jqXHR.done(function(response){
+            // TODO: need test reponse.result
+            if (response.code === 200){
+                dfd.resolve(response);
+            }else{
+                dfd.reject(response);
+            }
+        });
+
+        jqXHR.fail(function(jqx, textStatus, error){
+            dfd.reject(error);
+            // TODO: need to normalize error
+        });
+
+        return dfd.promise();
+    },
+
+    doGet: function(path, data){
+        return this.ajax("GET",path,data);
+    },
+
+    doPost: function(path, data){
+        return this.ajax("POST",path,data);
+    },
+
+    doPut: function(path, data){
+        return this.ajax("PUT",path,data);
+    },
+
+    doDelete: function(path, data){
+        return this.ajax("DELETE",path,data);
     }
 };

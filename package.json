@@ -4,8 +4,7 @@
   "version": "1.0.0",
   "author": "wangh",
   "license": "MIT",
-  "repository": {
-  },
+  "repository": {},
   "scripts": {
     "clean": "rm -fr ./www",
     "dev": "webpack --config build/webpack/development.js --progress --watch",
@@ -13,21 +12,22 @@
     "build_with_source_map": "npm run build --devtool source-map"
   },
   "devDependencies": {
+    "browser-sync": "^2.16.0",
+    "browser-sync-webpack-plugin": "^1.1.2",
+    "copy-webpack-plugin": "^1.1.1",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "html-loader": "^0.4.0",
     "html-webpack-plugin": "^2.7.1",
-    "copy-webpack-plugin": "^1.1.1",
     "less": "^2.5.3",
     "less-loader": "^2.2.2",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.11",
-    "browser-sync": "^2.11.1",
-    "browser-sync-webpack-plugin": "^1.0.1"
+    "webpack": "^1.12.11"
   },
   "dependencies": {
-    "framework7": "~1.4.0"
+    "framework7": "~1.4.0",
+    "jquery": "^3.1.0"
   }
 }

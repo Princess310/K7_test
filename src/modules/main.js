@@ -23,7 +23,6 @@ var app = {
     },
     initMainView:function(){
         app.initFramework7();
-
     },
     initFramework7: function(){
         //Register custom Template7 helpers
@@ -121,7 +120,7 @@ var app = {
             modalButtonCancel: "cancel"
         });
 
-        window.homeF7View = hiApp.addView('#homeView', {
+        window.dashboardF7View = hiApp.addView('#dashboardView', {
             dynamicNavbar: true
         });
 

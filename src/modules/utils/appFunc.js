@@ -113,5 +113,46 @@ module.exports = {
                     .on(bindings[i].event, bindings[i].handler);
             }
         }
+    },
+
+    setCookie: function(name, value, days, path){
+        var d = new Date();
+        days = days || 1; // 先保存24小时
+        path = path ? path : "/";
+        d.setDate(d.getDate() + days);
+        var expires = days ? "expires=" + d.toUTCString() : "";
+        document.cookie = name + "=" + value + "; " + expires+";path = "+path;
+    },
+
+    getCookie: function(name){
+        name = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' '){
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) != -1) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    },
+
+    removeCookie: function(){
+        document.cookie = name + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    },
+
+    getQueryString: function(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        return r == null ? (arguments[1] === undefined ? null : arguments[1]) :
+            decodeURIComponent(r[2]);
+    },
+
+    zeroFill: function(str){
+        str = String(str);
+        str = str.length < 2 ? "0"+str : str;
+        return str;
     }
 };

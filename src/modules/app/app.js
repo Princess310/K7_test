@@ -1,10 +1,10 @@
 require('./app.less');
 
 var appFunc = require('../utils/appFunc'),
-    homeView = require('../home/home');
+    dashboardView = require('../dashboard/dashboard');
 
 module.exports = {
     init: function(){
-        homeView.init()
+        dashboardView.init()
     }
 };

@@ -13,7 +13,9 @@ webpackConfig.plugins.push(
     new BrowserSyncPlugin({
         host: 'localhost',
         port: 3000,
-        server: { baseDir: ['./www'] }
+        server: {
+            baseDir: ['./www']
+        }
     })
 );
 

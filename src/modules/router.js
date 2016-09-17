@@ -18,7 +18,7 @@ module.exports = {
         var name = page.name;
         var from = page.from;
 
-        if(name === 'homeView' || name === 'contactView' || name === 'setting' ){
+        if(name === 'dashbordView' || name === 'contactView' || name === 'setting' ){
             if(from === 'left'){
                 appFunc.showToolbar();
             }
