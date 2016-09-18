@@ -1,5 +1,6 @@
 var index = require('./app/app'),
-    appFunc = require('./utils/appFunc');
+    appFunc = require('./utils/appFunc'),
+    loginModule = require('./login/login');
 
 module.exports = {
     init: function() {
@@ -18,6 +19,10 @@ module.exports = {
         var name = page.name;
         var from = page.from;
 
+        if(name === 'login'){
+            mainF7View.showNavbar();
+        }
+
         if(name === 'dashbordView' || name === 'contactView' || name === 'setting' ){
             if(from === 'left'){
                 appFunc.showToolbar();
@@ -27,5 +32,11 @@ module.exports = {
     pageBeforeInit: function(page) {
         var name = page.name;
         var query = page.query;
+
+        switch (name) {
+            case 'login':
+                loginModule.init();
+                break;
+        }
     }
 };

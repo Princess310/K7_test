@@ -11,6 +11,31 @@
 <div class="panel-overlay"></div>
 
 <div class="views tabs toolbar-through">
+    <div id="mainView" class="view tab active">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center sliding"></div>
+            </div>
+        </div>
+        <div class="pages">
+            <div data-page="welcome" class="page welcome-page">
+                <div class="WelcomeAppView">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="btn-container">
+                            <div class="row">
+                                <div class="col-50"><a href="#" class="button button-big button-blue button-fill">免费注册</a></div>
+                                <div class="col-50"><a href="page/login.html" class="button button-big button-blue button-fill">登录</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="businessView" class="view tab">
         <div class="navbar">
             <div class="navbar-inner">
@@ -58,7 +83,7 @@
         </div>
     </div>
 
-    <div id="dashboardView" class="view view-main tab active">
+    <div id="dashboardView" class="view view-main tab">
         <div class="navbar">
             <div class="navbar-inner">
 
@@ -84,9 +109,9 @@
                         <div class="preloader"></div>
                         <div class="pull-to-refresh-arrow"></div>
                     </div>
-                    <div class="load-result"></div>
+                    <div class="load-result">2</div>
                     <div class="home-timeline">
-
+                        <a href="page/login.html">login</a>
                     </div>
                 </div>
             </div>
@@ -120,7 +145,7 @@
                 <span class="tabbar-label">商务圈</span>
             </a>
 
-            <a href="#dashboardView" class="tab-link active">
+            <a href="#dashboardView" class="tab-link yaoyue-tab">
                 <i class="iconfont icon-yaoyue"></i>
                 <span class="tabbar-label">邀约</span>
             </a>

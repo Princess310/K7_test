@@ -4,7 +4,7 @@ var appFunc = require('./appFunc'),
 
 module.exports = {
 
-    domainUrl: "http://192.168.0.122/api/entry",
+    domainUrl: "http://192.168.0.127/api/entry",
 
     search: function(code, array){
         for (var i=0;i< array.length; i++){
@@ -50,7 +50,6 @@ module.exports = {
             url: apiUrl + path,
             type: method,
             dataType: "json",
-            crossDomain: true,
             data: data,
             complete: function(XMLHttpRequest, textStatus){
                 // TODO: get the new x-access-token and set it to localStorage

@@ -1,0 +1,12 @@
+@import "mixins";
+
+.button{
+    &.button-blue{
+        background-color: @color-v2-base-blue;
+    }
+
+    &.disable{
+        pointer-events: none;
+        background-color: @color-v2-txt-sub-help!important;
+    }
+}

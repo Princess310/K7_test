@@ -2,6 +2,7 @@ require('framework7');
 require('../style/less/app.less');
 
 var router = require('./router'),
+    appFunc = require('./utils/appFunc'),
     index = require('./app/app');
 
 var app = {
@@ -112,23 +113,32 @@ var app = {
         // --------- /parseDistance --------- //
 
         window.$$ = Dom7;
-        window.hiApp = new Framework7({
+        window.yaoyueApp = new Framework7({
             popupCloseByOutside:false,
             animateNavBackIcon: true,
             modalTitle: "test",
             modalButtonOk: "ok",
-            modalButtonCancel: "cancel"
+            modalButtonCancel: "cancel",
+            preroute: function (view, options) {
+                var userId = appFunc.getCookie("userid");
+
+                return true;
+            }
         });
 
-        window.dashboardF7View = hiApp.addView('#dashboardView', {
+        window.mainF7View = yaoyueApp.addView('#mainView', {
             dynamicNavbar: true
         });
 
-        hiApp.addView('#contactView', {
+        window.dashboardF7View = yaoyueApp.addView('#dashboardView', {
             dynamicNavbar: true
         });
 
-        hiApp.addView('#settingView', {
+        yaoyueApp.addView('#contactView', {
+            dynamicNavbar: true
+        });
+
+        yaoyueApp.addView('#settingView', {
             dynamicNavbar: true
         });
 
