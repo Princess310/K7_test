@@ -1,10 +1,9 @@
 var appFunc = require('./appFunc'),
-    networkStatus = require('../components/networkStatus'),
-    jQ = require('jquery');
+    networkStatus = require('../components/networkStatus');
 
 module.exports = {
 
-    domainUrl: "http://192.168.0.127/api/entry",
+    domainUrl: "http://192.168.0.101/api/entry",
 
     search: function(code, array){
         for (var i=0;i< array.length; i++){
@@ -32,28 +31,32 @@ module.exports = {
         return apiServer.replace(/&$/gi, '');
     },
 
-    ajax: function(method, path, data){
+    ajax: function(method, path, data, successFn, failFn){
         var apiUrl = this.domainUrl + '/index.php?r=';
         var token = appFunc.getCookie("user_access_token");
-        var dfd = jQ.Deferred();
         var method = method || "POST";
 
-        if(token && token !== ""){
-            jQ.ajaxSetup({
-                headers: {
-                    'X-Access-Token': token
-                }
-            });
-        }
-
-        var jqXHR = jQ.ajax({
+        $$.ajax({
             url: apiUrl + path,
             type: method,
+            headers: {
+                'X-Access-Token': token
+            },
             dataType: "json",
             data: data,
             complete: function(XMLHttpRequest, textStatus){
                 // TODO: get the new x-access-token and set it to localStorage
                 // console.log("XMLHttpRequest", XMLHttpRequest.getAllResponseHeaders());
+            },
+            success: function(result){
+                if (result.code === 200){
+                    successFn(result);
+                }else{
+                    failFn(result);
+                }
+            },
+            error: function(err){
+                console.log("err", err);
             }
         });
 
@@ -69,37 +72,37 @@ module.exports = {
             }
         }
         // --------- /Dplus Record Data --------- //
+    },
 
-        jqXHR.done(function(response){
-            // TODO: need test reponse.result
-            if (response.code === 200){
-                dfd.resolve(response);
-            }else{
-                dfd.reject(response);
-            }
+    doGet: function(path, data, successFn, failFn){
+        this.ajax("GET",path,data,function(result){
+            successFn(result);
+        }, function(err){
+            failFn(err);
         });
+    },
 
-        jqXHR.fail(function(jqx, textStatus, error){
-            dfd.reject(error);
-            // TODO: need to normalize error
+    doPost: function(path, data, successFn, failFn){
+        this.ajax("POST",path,data,function(result){
+            successFn(result);
+        }, function(err){
+            failFn(err);
         });
-
-        return dfd.promise();
     },
 
-    doGet: function(path, data){
-        return this.ajax("GET",path,data);
+    doPut: function(path, data, successFn, failFn){
+        this.ajax("PUT",path,data,function(result){
+            successFn(result);
+        }, function(err){
+            failFn(err);
+        });
     },
 
-    doPost: function(path, data){
-        return this.ajax("POST",path,data);
-    },
-
-    doPut: function(path, data){
-        return this.ajax("PUT",path,data);
-    },
-
-    doDelete: function(path, data){
-        return this.ajax("DELETE",path,data);
+    doDelete: function(path, data, successFn, failFn){
+        this.ajax("DELETE",path,data,function(result){
+            successFn(result);
+        }, function(err){
+            failFn(err);
+        });
     }
 };

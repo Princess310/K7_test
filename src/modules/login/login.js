@@ -53,6 +53,10 @@ module.exports = {
         service.login({
             username: username,
             password: password
+        }).done(function(result){
+            console.log();
+        }).fail(function(err){
+            console.log("err");
         });
     },
 
