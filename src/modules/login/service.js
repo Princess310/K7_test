@@ -1,16 +1,11 @@
-var xhr = require('../utils/xhr'),
-    jQ = require('jquery');
+var xhr = require('../utils/xhr');
 
 module.exports = {
-    login: function(params){
-        var dfd = jQ.Deferred();
-
+    login: function(params, successFn, failFn){
         xhr.doPut("user/login", params, function(result){
-            dfd.resolve(result);
+            successFn(result);
         }, function(err){
-            dfd.reject(err);
+            failFn(err);
         });
-
-        return dfd.promise();
     }
 };

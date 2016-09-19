@@ -121,13 +121,18 @@ var app = {
             modalButtonCancel: "cancel",
             preroute: function (view, options) {
                 var userId = appFunc.getCookie("userid");
-
+                console.log("in preroute1");
                 return true;
             }
         });
 
         window.mainF7View = yaoyueApp.addView('#mainView', {
-            dynamicNavbar: true
+            dynamicNavbar: true,
+            preroute: function (view, options) {
+                var userId = appFunc.getCookie("userid");
+                console.log("in preroute2");
+                return true;
+            }
         });
 
         window.dashboardF7View = yaoyueApp.addView('#dashboardView', {

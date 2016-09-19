@@ -1,5 +1,16 @@
-{{#each pics}}
-<div class="swiper-slide">
-    <img src="{{this}}" class="app-img">
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        {{#each pics}}
+        <div class="swiper-slide">
+            <img src="{{this}}" class="app-img">
+        </div>
+        {{/each}}
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="btn-container">
+        <div class="row">
+            <div class="col-50"><a href="page/register.html" class="button button-big button-blue button-fill">免费注册</a></div>
+            <div class="col-50"><a href="page/login.html" class="button button-big button-blue button-fill">登录</a></div>
+        </div>
+    </div>
 </div>
-{{/each}}

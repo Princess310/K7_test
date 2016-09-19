@@ -38,25 +38,30 @@ module.exports = {
      */
     doLogin: function(){
         var view = this;
-        var $form = view.$el.find(".login-form");
-        var $check = view.$el.find(".c-check");
         var username = view.$el.find("#input-id").val();
         var password = view.$el.find("#pwd-id").val();
 
         if(username === ""){
-            yaoyueApp.alert("用户名不能为空！");
+            yaoyueApp.alert("用户名不能为空！", "提示");
         }
         if(password === ""){
-            yaoyueApp.alert("密码不能为空！");
+            yaoyueApp.alert("密码不能为空！", "提示");
         }
 
         service.login({
             username: username,
             password: password
-        }).done(function(result){
-            console.log();
-        }).fail(function(err){
-            console.log("err");
+        }, function(result){
+            var data = result.data;
+            var userId = data.id;
+            var token = data.access_token;
+
+            appFunc.setCookie("user_access_token", token);
+            appFunc.setCookie("userid", userId);
+
+            appFunc.showMainView();
+        }, function(err){
+            yaoyueApp.alert(err.message, "提示");
         });
     },
 

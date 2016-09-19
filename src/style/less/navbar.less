@@ -38,10 +38,19 @@
   }
 }
 
-.navbar, .toolbar, .subnavbar{
+.navbar, .subnavbar{
   background: @white;
+}
+
+.toolbar{
+  background: @color-v2-tool-bar;
 }
 
 .navbar, .toolbar{
   height: 1.36rem;
+}
+
+.toolbar-through .page-content, .toolbar-fixed .page-content, .tabbar-through .page-content, .tabbar-fixed .page-content{
+  padding-top: 52px;
+  padding-bottom: 52px;
 }

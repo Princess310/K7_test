@@ -1,5 +1,7 @@
 require('framework7');
 
+var app = require("../app/app");
+
 module.exports = {
 
     isPhonegap: function() {
@@ -37,6 +39,11 @@ module.exports = {
 
     showToolbar: function() {
         yaoyueApp.showToolbar('.toolbar');
+    },
+
+    showMainView: function(){
+        this.showToolbar();
+        $$(".toolbar").find(".yaoyue-tab").click();
     },
 
     timeFormat: function(ms){

@@ -56,7 +56,7 @@ module.exports = {
                 }
             },
             error: function(err){
-                console.log("err", err);
+                failFn(JSON.parse(err.response));
             }
         });
 

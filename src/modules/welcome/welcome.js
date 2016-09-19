@@ -14,7 +14,7 @@ module.exports = {
     init: function(){
         var html = appFunc.renderTpl(template, {pics: this.pics});
 
-        $$(".WelcomeAppView .swiper-wrapper").html(html);
+        $$(".WelcomeAppView").html(html);
         this.initSwiper();
     },
 

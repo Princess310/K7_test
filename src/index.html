@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="pages">
-            <div data-page="welcome" class="page welcome-page">
+            <div data-page="welcome" class="page no-navbar welcome-page">
                 <div class="WelcomeAppView">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
@@ -26,7 +26,7 @@
                         <div class="swiper-pagination"></div>
                         <div class="btn-container">
                             <div class="row">
-                                <div class="col-50"><a href="#" class="button button-big button-blue button-fill">免费注册</a></div>
+                                <div class="col-50"><a href="page/register.html" class="button button-big button-blue button-fill">免费注册</a></div>
                                 <div class="col-50"><a href="page/login.html" class="button button-big button-blue button-fill">登录</a></div>
                             </div>
                         </div>
@@ -103,16 +103,30 @@
         </div>
 
         <div class="pages navbar-through">
-            <div data-page="dashboardView" class="page no-swipeback">
+            <div data-page="dashboardView" class="page no-swipeback DashboardView">
                 <div data-distance="50" class="page-content pull-to-refresh-content infinite-scroll">
                     <div class="pull-to-refresh-layer">
                         <div class="preloader"></div>
                         <div class="pull-to-refresh-arrow"></div>
                     </div>
-                    <div class="load-result">2</div>
-                    <div class="home-timeline">
-                        <a href="page/login.html">login</a>
+
+                    <div class="match-panel hide">
+                        <div class="match-count">
+                            已为您匹配到<span class="match-mark"></span>条信息
+                        </div>
                     </div>
+
+                    <div class="search-content">
+                        <div class="feed-panel">
+                            <div class="feed-content">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="top hide"></div>
+                    <a href="tel:18227552785" class="link-kefu"></a>
                 </div>
             </div>
         </div>
@@ -135,22 +149,22 @@
     <!-- toolbar start -->
     <div class="toolbar tabbar tabbar-labels">
         <div class="toolbar-inner">
-            <a href="#contactView" class="tab-link">
+            <a href="#contactView" class="tab-link" data-page="message">
                 <i class="iconfont icon-xiaoxi1"></i>
                 <span class="tabbar-label">消息</span>
             </a>
 
-            <a href="#businessView" class="tab-link">
+            <a href="#businessView" class="tab-link" data-page="business">
                 <i class="iconfont icon-shangwuquan1"></i>
                 <span class="tabbar-label">商务圈</span>
             </a>
 
-            <a href="#dashboardView" class="tab-link yaoyue-tab">
+            <a href="#dashboardView" class="tab-link yaoyue-tab" data-page="dashboard">
                 <i class="iconfont icon-yaoyue"></i>
                 <span class="tabbar-label">邀约</span>
             </a>
 
-            <a href="#settingView" class="tab-link">
+            <a href="#settingView" class="tab-link" data-page="setting">
                 <i class="iconfont icon-wo2">
                     <!-- <span class="badge badge-red">4</span> -->
                 </i>

@@ -1,6 +1,8 @@
 var index = require('./app/app'),
     appFunc = require('./utils/appFunc'),
-    loginModule = require('./login/login');
+    welcomeModule = require('./welcome/welcome'),
+    loginModule = require('./login/login'),
+    registerModule = require('./register/register');
 
 module.exports = {
     init: function() {
@@ -19,7 +21,7 @@ module.exports = {
         var name = page.name;
         var from = page.from;
 
-        if(name === 'login'){
+        if(name === 'login' || name === "register"){
             mainF7View.showNavbar();
         }
 
@@ -31,11 +33,17 @@ module.exports = {
     },
     pageBeforeInit: function(page) {
         var name = page.name;
-        var query = page.query;
+        var query = page.query;console.log("name", name);
 
         switch (name) {
+            case 'welcome':
+                welcomeModule.init();
+                break;
             case 'login':
                 loginModule.init();
+                break;
+            case 'register':
+                registerModule.init();
                 break;
         }
     }
