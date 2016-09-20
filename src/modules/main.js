@@ -48,8 +48,9 @@ var app = {
         // --------- suitableImg --------- //
         Template7.registerHelper('suitableImg', function (path, options) {
             var path = path || "";
+
             if(path.indexOf("__") >= 0){
-                path = app.oss.getImgSuitablePath(path);
+                //path = app.oss.getImgSuitablePath(path);
             }
             return path;
         });
@@ -143,7 +144,7 @@ var app = {
             dynamicNavbar: true
         });
 
-        yaoyueApp.addView('#settingView', {
+        window.userF7View =  yaoyueApp.addView('#userCenterView', {
             dynamicNavbar: true
         });
 

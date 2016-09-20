@@ -1,0 +1,35 @@
+<div class="user-info-bg">
+    <div class="user-wrapper">
+        <img class="user-icon" src="{{#suitableImg avatar}}{{/suitableImg}}">
+        {{#check verify_status "===" "1"}}
+        <span class="vip"><span class="iconfont icon-vip1"></span></span>
+        {{/check}}
+    </div>
+    <div class="info">
+        <span class="info-item">{{nickname}}</span>
+        {{#check position "!==" ""}}
+        <span class="info-item">{{position}}</span>
+        {{/check}}
+    </div>
+    <div class="info">
+        {{#check company "!==" ""}}
+        <span class="info-item">{{company}}</span>
+        {{/check}}
+        {{#check position "!==" ""}}
+        <span class="info-item">{{tag_identity_name}}</span>
+        {{/check}}
+    </div>
+    <div class="info">
+        <span class="info-item">{{intro}}</span>
+    </div>
+    <a class="iconfont icon-shezhi btn-right share-btn" href="#"></a>
+    <a class="iconfont icon-notice msg-icon msg-btn" href="#"></a>
+</div>
+<article class="user-sub-info">
+    <span class="sub-item effect-item">影响力：<span class="effect-value">{{influence}}</span></span>
+    <span class="sub-item honesty-item">诚信等级<span class="honesty-bar-bg"><span class="honesty-bar" style="width: {{integrity_progress}}"></span></span><span class="honesty-rank">V{{integrity_level}}</span></span>
+</article>
+<div class="action-btns">
+    <a href="#" class="action-item user-edit">资料编辑</a>
+    <a href="#" class="action-item private-eidt">业务介绍</a>
+</div>

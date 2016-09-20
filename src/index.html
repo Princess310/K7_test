@@ -39,12 +39,45 @@
     <div id="businessView" class="view tab">
         <div class="navbar">
             <div class="navbar-inner">
-                <div class="center sliding">商务圈</div>
+                <div class="left">
+                    <a href="#" class="left link icon-only">
+                        <i class="iconfont icon-eye"></i>
+                    </a>
+                </div>
+
+                <div class="center sliding">
+                    <!-- 导航栏中的按键排控制器 -->
+                    <div class="buttons-row">
+                        <a href="#tab1" class="tab-link normal active">动态</a>
+                        <a href="#tab2" class="tab-link normal">广场</a>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <a href="#" class="link icon-only">
+                        <i class="iconfont icon-editors"></i>
+                    </a>
+                </div>
             </div>
         </div>
         <div class="pages navbar-through">
-            <div data-page="setting" class="page">
-                商务圈
+            <div data-page="business" class="page business-page BusinessCircleView">
+                <div class="page-content">
+                    <!-- Tabs动画容器, 在动画过渡时需要 -->
+                    <div class="tabs-animated-wrap">
+                        <!-- Tabs, tabs容器 -->
+                        <div class="tabs">
+                            <!-- Tab 1，默认激活 -->
+                            <div id="tab1" class="tab active">
+                                ... Tab 1 content ...d
+                            </div>
+                            <!-- Tab 2 -->
+                            <div id="tab2" class="tab">
+                                ... Tab 2 content ...
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -87,14 +120,14 @@
         <div class="navbar">
             <div class="navbar-inner">
 
-                <div class="left">
+                <a href="page/cityPicker.html" class="left normal">
                     成都市
-                </div>
+                </a>
 
                 <div class="center sliding">邀约</div>
 
                 <div class="right">
-                    <a href="#" class="open-send-popup link icon-only">
+                    <a href="page/search.html" class="open-send-popup link icon-only">
                         <i class="iconfont icon-sousu"></i>
                     </a>
                 </div>
@@ -122,8 +155,9 @@
 
                             </div>
                         </div>
-                    </div>
 
+
+                    </div>
 
                     <div class="top hide"></div>
                     <a href="tel:18227552785" class="link-kefu"></a>
@@ -133,15 +167,83 @@
 
     </div>
 
-    <div id="settingView" class="view tab">
+    <div id="userCenterView" class="view tab">
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="center sliding">个人中心</div>
             </div>
         </div>
         <div class="pages navbar-through">
-            <div data-page="setting" class="page">
+            <div data-page="user" class="page user-page no-navbar UserCenterView">
+                <div data-distance="50" class="page-content">
+                    <div class="UserCenterView">
+                        <div class="ali-user-info">
 
+                        </div>
+
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-media"><i class="iconfont icon-fangke blue"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title">访客</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-media"><i class="iconfont icon-fenxiangpengyouquan blue"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title">我的商务圈</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-media"><i class="iconfont icon-wodeshoucang blue"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title">我的收藏</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-media"><i class="iconfont icon-wodeshoucang blue"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title">我的钱包</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-media"><i class="iconfont icon-chengweirenzhengyonghu blue"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title">成为认证用户</div>
+                                            <div class="item-after">未认证</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <a href="#" class="item-link list-button">
+                                        <span class="iconfont icon-fenxiang"></span>
+                                        <span>邀请好友帮您增加影响力</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -164,11 +266,11 @@
                 <span class="tabbar-label">邀约</span>
             </a>
 
-            <a href="#settingView" class="tab-link" data-page="setting">
+            <a href="#userCenterView" class="tab-link" data-page="user">
                 <i class="iconfont icon-wo2">
                     <!-- <span class="badge badge-red">4</span> -->
                 </i>
-                <span class="tabbar-label">我的</span>
+                <span class="tabbar-label">我</span>
             </a>
         </div>
     </div>

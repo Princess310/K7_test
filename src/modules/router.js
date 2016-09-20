@@ -2,7 +2,9 @@ var index = require('./app/app'),
     appFunc = require('./utils/appFunc'),
     welcomeModule = require('./welcome/welcome'),
     loginModule = require('./login/login'),
-    registerModule = require('./register/register');
+    registerModule = require('./register/register'),
+    cityPickerModule = require('./cityPicker/cityPicker'),
+    searchModule = require('./search/search');
 
 module.exports = {
     init: function() {
@@ -25,10 +27,15 @@ module.exports = {
             mainF7View.showNavbar();
         }
 
-        if(name === 'dashbordView' || name === 'contactView' || name === 'setting' ){
+        if(name === 'dashboardView' || name === 'contactView' || name === 'setting' ){
             if(from === 'left'){
                 appFunc.showToolbar();
             }
+        }
+
+        switch (name) {
+            case 'city':
+                cityPickerModule.init();
         }
     },
     pageBeforeInit: function(page) {
@@ -44,6 +51,9 @@ module.exports = {
                 break;
             case 'register':
                 registerModule.init();
+                break;
+            case 'search':
+                searchModule.init();
                 break;
         }
     }

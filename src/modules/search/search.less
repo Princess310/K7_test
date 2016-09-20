@@ -1,0 +1,195 @@
+@import "../../style/less/mixins";
+
+.SearchPanelView{
+  .search-bar{
+    position: relative;
+    padding: 0.32rem 1.226667rem 0.32rem 0.986667rem;
+    background-color: @white;
+    line-height: 1.36rem;
+    border-bottom: 2px @color-v2-border solid;
+    .search-bg{
+      position: relative;
+      height: 0.666667rem;
+      width: 100%;
+      background: @white;
+      .border-radius(0.2rem);
+      .search-input{
+        .fitparent();
+        padding-left: 1.066667rem;
+        padding-right: 2.0rem;
+        border: 0;
+        font-size: 0.373333rem;
+        line-height: 0.666667rem;
+        outline: none;
+        background-color: @color-v2-bg;
+        .border-radius(0.2rem);
+        .placeholder();
+        &:focus{
+          outline: none;
+        }
+      }
+    }
+    .search-icon{
+      position: absolute;
+      top: 0;
+      left: 1.0rem;
+      bottom: 0;
+      width: 1.066667rem;
+      font-size: 0.373333rem;
+      text-align: center;
+      color: @color-v2-txt-sub-help;
+      z-index: 2;
+    }
+    .do-search{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 1.226667rem;
+      font-size: 0.346667rem;
+      text-align: center;
+      color: @color-v2-base-black;
+      z-index: 2;
+    }
+    .cancel-search{
+      position: absolute;
+      top: 0;
+      right: .92rem;
+      bottom: 0;
+      width: 1rem;
+      color: @color-v2-txt-sub-help;
+      font-size: 0.4rem;
+    }
+    .cancel-btn{
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      padding-left: 0.2rem;
+      font-size: 0.56rem;
+      line-height: 1.36rem;
+      color: @color-v2-base-black;
+      z-index: 2;
+    }
+  }
+
+  .view-content{
+    .fitparent(1.36rem 0 0 0);
+    .scroll-y();
+  }
+
+  .search-content{
+    color: @color-txt-lighter;
+    .search-label{
+      height: 0.853333rem;
+      line-height: 0.853333rem;
+      color: @color-v2-base-blue;
+      font-size: 0.373333rem;
+      padding-left: 0.32rem;
+    }
+    .search-panel{
+      background-color: @white;
+      padding: 0.16rem;
+      font-size: 0;
+      color: @color-v2-txt-sub-help;
+      .search-item{
+        display: inline-block;
+        padding-left: 0.106667rem;
+        padding-right: 0.106667rem;
+        margin: 0.16rem;
+        width: 2.08rem;
+        height: 0.96rem;
+        font-size: 0.4rem;
+        line-height: 0.96rem;
+        text-align: center;
+        border: 1px @color-v2-txt-subInfo solid;
+        .border-radius(0.133333rem);
+        .ellipsis();
+      }
+    }
+    .search-history{
+      margin-bottom: 2.533333rem;
+      color: @color-v2-txt-sub-help;
+      .weui_cells{
+        margin-top: 0;
+        .weui_cell{
+          .del-btn{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 0;
+            font-size: 32px;
+            color: @white;
+            text-align: center;
+            line-height: 1.173333rem;
+            background-color: @color-v2-base-red;
+          }
+          &.del-status{
+            .del-btn{
+              width: 1.426667rem;
+              .animation(fadeInLeft,.3s,linear,0s,1,normal);
+            }
+          }
+          &.normal-status{
+            .del-btn{
+              width: 1.426667rem;
+              .animation(fadeOutRight,.3s,linear,0s,1,forwards);
+            }
+          }
+        }
+      }
+    }
+  }
+  .clear-history{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2.533333rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .clear-btn{
+      height: 1.066667rem;
+      width: 3.653333rem;
+      text-align: center;
+      line-height: 1.066667rem;
+      border: 1px @color-v2-base-blue solid;
+      .border-radius(4px);
+      color: @color-v2-base-blue;
+      font-size: 0.4rem;
+    }
+  }
+
+  .search-result{
+    .result-panel{
+      .title{
+        height: 0.8rem;
+        padding-left: 0.16rem;
+        line-height: 0.8rem;
+        color: @color-v2-base-blue;
+        font-size: 0.32rem;
+        background-color: @color-v2-base-blue-lighter;
+      }
+      .content{
+        .feed-detail{
+          margin-bottom: 0;
+        }
+      }
+      .search-more{
+        height: 1.266667rem;
+        line-height: 1.266667rem;
+        text-align: center;
+        color: @color-v2-txt-sub-help;
+        font-size: 0.373333rem;
+        background-color: #f5f3f4;
+      }
+    }
+  }
+
+  .feed-detail-mini{
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

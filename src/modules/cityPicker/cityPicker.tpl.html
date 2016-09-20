@@ -1,0 +1,16 @@
+{{#each normalCityList}}
+<div class="list-group" data-id="{{id}}">
+    <ul>
+        <li class="list-group-title">{{name}}</li>
+        {{#each list}}
+        <li>
+            <div class="item-content" data-id="{{id}}">
+                <div class="item-inner">
+                    <div class="item-title">{{name}} </div>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+{{/each}}

@@ -2,7 +2,8 @@ require('./app.less');
 
 var appFunc = require('../utils/appFunc'),
     welcome = require('../welcome/welcome'),
-    dashboardView = require('../dashboard/dashboard');
+    dashboardView = require('../dashboard/dashboard'),
+    userView = require('../user/user');
 
 module.exports = {
     init: function(){
@@ -16,6 +17,7 @@ module.exports = {
             appFunc.hideToolbar();
         }else {
             appFunc.showMainView();
+            userView.init();
         }
     },
 

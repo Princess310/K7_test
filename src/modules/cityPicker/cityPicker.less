@@ -1,0 +1,31 @@
+@import "../../style/less/mixins";
+
+.CityPickerView{
+  .list-block{
+    .list-group{
+        .current-city{
+          font-weight: @font-weight-normal;
+          font-size: 12px;
+        }
+      .item-content{
+        .item-inner{
+          .city-item{
+            display: inline-block;
+            height: 0.933333rem;
+            width: 2.8rem;
+            font-size: 0.506667rem;
+            line-height: 0.933333rem;;
+            text-align: center;
+            border: 1px #d2d1d5 solid;
+            .border-radius(10px);
+            background-color: @white;
+            color: #868686;
+            &.current{
+              color: @color-v2-base-blue
+            }
+          }
+        }
+      }
+    }
+  }
+}
