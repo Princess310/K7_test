@@ -48,8 +48,8 @@
                 <div class="center sliding">
                     <!-- 导航栏中的按键排控制器 -->
                     <div class="buttons-row">
-                        <a href="#tab1" class="tab-link normal active">动态</a>
-                        <a href="#tab2" class="tab-link normal">广场</a>
+                        <a href="#moments" class="tab-link normal active">动态</a>
+                        <a href="#plaza" class="tab-link normal">广场</a>
                     </div>
                 </div>
 
@@ -68,12 +68,46 @@
                         <!-- Tabs, tabs容器 -->
                         <div class="tabs">
                             <!-- Tab 1，默认激活 -->
-                            <div id="tab1" class="tab active">
-                                ... Tab 1 content ...d
+                            <div id="moments" data-distance="50"  class="tab active moments-tab pull-to-refresh-content">
+                                <div class="pull-to-refresh-layer">
+                                    <div class="preloader"></div>
+                                    <div class="pull-to-refresh-arrow"></div>
+                                </div>
+                                <div class="content-wrapper infinite-scroll">
+                                    <div class="search-bar">
+                                        <i class="weui_icon_search"></i>
+                                        <span>搜索</span>
+                                    </div>
+                                    <div class="business-msg-container">
+
+                                    </div>
+                                    <div class="content"></div>
+                                    <!-- 加载提示符 -->
+                                    <div class="infinite-scroll-preloader">
+                                        <div class="preloader"></div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- Tab 2 -->
-                            <div id="tab2" class="tab">
-                                ... Tab 2 content ...
+                            <div id="plaza" data-distance="50"  class="tab  plaza-tab pull-to-refresh-content">
+                                <div class="pull-to-refresh-layer">
+                                    <div class="preloader"></div>
+                                    <div class="pull-to-refresh-arrow"></div>
+                                </div>
+                                <div class="content-wrapper infinite-scroll">
+                                    <div class="search-bar">
+                                        <i class="weui_icon_search"></i>
+                                        <span>搜索</span>
+                                    </div>
+                                    <div class="business-msg-container">
+
+                                    </div>
+                                    <div class="content"></div>
+                                    <!-- 加载提示符 -->
+                                    <div class="infinite-scroll-preloader">
+                                        <div class="preloader"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -82,34 +116,52 @@
         </div>
     </div>
 
-    <div id="contactView" class="view tab">
+    <div id="messageView" class="view tab">
         <div class="navbar">
             <div class="navbar-inner">
-                <div class="center sliding">联系人</div>
+                <a href="page/userList.html" class="left">
+                    通讯录
+                </a>
+
+                <div class="center sliding">消息</div>
+
+                <div class="right">
+                    <a href="page/search.html" class="open-send-popup link icon-only">
+                        <i class="iconfont icon-sousu"></i>
+                    </a>
+                </div>
             </div>
         </div>
 
         <div class="pages navbar-through">
-            <div data-page="contactView" class="page contact-page">
-                <!-- Search bar -->
-                <form class="searchbar">
-                    <div class="searchbar-input">
-                        <input type="search">
-                        <a href="#" class="searchbar-clear"></a>
-                    </div>
-                    <a href="#" class="searchbar-cancel"></a>
-                </form>
-
-                <!-- Search bar overlay-->
-                <div class="searchbar-overlay"></div>
-
+            <div data-page="message" class="page message-page MessageView">
                 <div class="page-content">
-                    <div class="list-block contacts-list searchbar-found">
-                        <div class="list-group">
-                            <ul></ul>
-                        </div>
+                    <div class="msg-link">
+                        <a href="index.html#newuserlist" class="item">
+                            <div class="icon-wrapper green">
+                                <span class="iconfont icon-x"></span>
+                            </div>
+                            <div class="des">关注我</div>
+                        </a>
+                        <a href="index.html#visitor" class="item">
+                            <div class="icon-wrapper yellow">
+                                <span class="iconfont icon-guanzhu"></span>
+                            </div>
+                            <div class="des">新访客</div>
+                        </a>
+                        <a href="index.html#notice" class="item">
+                            <div class="icon-wrapper blue">
+                                <span class="iconfont icon-xiaoxi1"></span>
+                            </div>
+                            <div class="des">给我留言</div>
+                        </a>
                     </div>
-                    <div class="content-block searchbar-not-found" >
+
+                    <div class="link-wrapper">
+
+                    </div>
+
+                    <div class="message-container">
                     </div>
                 </div>
             </div>
@@ -156,7 +208,10 @@
                             </div>
                         </div>
 
-
+                        <!-- 加载提示符 -->
+                        <div class="infinite-scroll-preloader">
+                            <div class="preloader"></div>
+                        </div>
                     </div>
 
                     <div class="top hide"></div>
@@ -251,7 +306,7 @@
     <!-- toolbar start -->
     <div class="toolbar tabbar tabbar-labels">
         <div class="toolbar-inner">
-            <a href="#contactView" class="tab-link" data-page="message">
+            <a href="#messageView" class="tab-link" data-page="message">
                 <i class="iconfont icon-xiaoxi1"></i>
                 <span class="tabbar-label">消息</span>
             </a>
@@ -277,6 +332,8 @@
     <!-- toolbar end -->
 </div>
 
+<!-- OSS -->
+<script src="http://gosspublic.alicdn.com/aliyun-oss-sdk-4.3.0.min.js"></script>
 <script type="text/javascript" src="lib/flexible.js"></script>
 </body>
 

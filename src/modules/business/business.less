@@ -1,0 +1,70 @@
+@import "../../style/less/mixins";
+
+#businessView{
+  .tab-link{
+  	&.active{
+  		border-bottom: 0.053333rem @color-v2-base-blue solid;
+  	}
+    &:last-child{
+      margin-left: 1.933333rem;
+    }
+  }
+
+  .page{
+    background: @white;
+  }
+
+  .content-wrapper{
+    position: relative;
+    height: 100%;
+    .scroll-y();
+    .search-bar{
+      height: 0.733333rem;
+      margin: 0.266667rem;
+      text-align: center;
+      background-color: #f5f6f6;
+      color: #9f9fa0;
+      line-height: 0.733333rem;
+      .border-radius(0.106667rem);
+    }
+
+    .business-msg-wrapper{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0.72rem auto;
+      padding-left: 0.16rem;
+      padding-right: 0.16rem;
+      width: 4.346667rem;
+      height: 0.986667rem;
+      color: @white;
+      font-size: 0.346667rem;
+      background-color: @color-v2-base-blue;
+      .border-radius(0.053333rem);
+      .msg-pic{
+        width: 0.8rem;
+        height: 0.8rem;
+        .border-radius(0.133333rem);
+      }
+    }
+
+    .content{
+      border-top: 1px @color-v2-border solid;
+      .feed-detail-mini{
+        border-bottom: none;
+        margin-top: 0;
+        margin-right: 0;
+        .feed-detail-right{
+          border-bottom: 1px @color-v2-border solid;
+        }
+      }
+      .no-comments{
+        padding-top: 2.666667rem;
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}

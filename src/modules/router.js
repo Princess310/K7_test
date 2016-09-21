@@ -27,7 +27,7 @@ module.exports = {
             mainF7View.showNavbar();
         }
 
-        if(name === 'dashboardView' || name === 'contactView' || name === 'setting' ){
+        if(name === 'dashboardView' || name === 'business' || name === 'message' || name === 'user' ){
             if(from === 'left'){
                 appFunc.showToolbar();
             }

@@ -27,6 +27,8 @@
     "webpack": "^1.12.11"
   },
   "dependencies": {
-    "framework7": "~1.4.0"
+    "framework7": "~1.4.0",
+    "layzr.js": "^2.2.1",
+    "moment": "^2.15.1"
   }
 }

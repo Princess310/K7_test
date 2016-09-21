@@ -3,7 +3,9 @@ require('../style/less/app.less');
 
 var router = require('./router'),
     appFunc = require('./utils/appFunc'),
-    index = require('./app/app');
+    index = require('./app/app'),
+    date = require('./utils/date'),
+    oss = require('./utils/oss');
 
 var app = {
     initialize: function() {
@@ -50,7 +52,7 @@ var app = {
             var path = path || "";
 
             if(path.indexOf("__") >= 0){
-                //path = app.oss.getImgSuitablePath(path);
+                path = oss.getImgSuitablePath(path);
             }
             return path;
         });
@@ -113,6 +115,23 @@ var app = {
         });
         // --------- /parseDistance --------- //
 
+        // --------- parseDate --------- //
+        Template7.registerHelper('parseDate', function (value, options) {
+            var time = date.getTimeForNow();
+            var dateStr = value * 1000;
+            var diffTime = 1000 * 60 * 60 * 24 * 7; // 7 days diff
+            var result;
+
+            if(date.checkDiffDate(dateStr, time, diffTime)){
+                result = date.format(dateStr, "YYYY-MM-DD");
+            }else {
+                result = date.dateSinceToday(value * 1000);
+            }
+
+            return result;
+        });
+        // --------- /parseDate --------- //
+
         window.$$ = Dom7;
         window.yaoyueApp = new Framework7({
             popupCloseByOutside:false,
@@ -140,11 +159,11 @@ var app = {
             dynamicNavbar: true
         });
 
-        yaoyueApp.addView('#contactView', {
+        window.messageF7View = yaoyueApp.addView('#messageView', {
             dynamicNavbar: true
         });
 
-        window.userF7View =  yaoyueApp.addView('#userCenterView', {
+        window.userF7View = window.userF7View =  yaoyueApp.addView('#userCenterView', {
             dynamicNavbar: true
         });
 

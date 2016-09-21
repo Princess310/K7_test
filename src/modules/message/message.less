@@ -1,0 +1,193 @@
+@import "../../style/less/mixins";
+
+.MessageView{
+  .ali-action-panel{
+    margin-top: 0.053333rem;
+    .action-item{
+      border-bottom: none;
+      padding-left: 0.08rem;
+      border-bottom: 1px @color-v2-border solid;
+      .action-wrapper{
+        .action-msg-icon{
+          width: 1.266667rem;
+          height: 1.266667rem;
+          .avatar-img{
+            .border-radius(0.133333rem);
+          }
+          .iconfont{
+            color: @color-v2-base-blue;
+            font-size: 1.12rem;
+          }
+        }
+      }
+    }
+  }
+
+  .message-container{
+    color: @color-v2-txt-sub-help;
+    .message-item{
+      position: relative;
+      display: block;
+      height: 1.866667rem;
+      border-bottom: 1px @color-theme-bg solid;
+      font-size: 0.4rem;
+      color: @color-txt-black;
+      .btn-hover();
+      &:last-child{
+        border-bottom: 1px transparent solid;
+      }
+      .user-icon{
+        position: absolute;
+        left: 0.32rem;
+        top: 0.32rem;
+        width: 1.266667rem;
+        height: 1.266667rem;
+        .border-radius(0.133333rem);
+      }
+      .vip{
+        position: absolute;
+        left: 1.226667rem;
+        bottom: 0.266667rem;
+        width: 0.4rem;
+        height: 0.4rem;
+        .border-radius(100%);
+        text-align: center;
+        background-color: #feb603;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: @white;
+        .iconfont{
+          font-size: 0.213333rem;
+        }
+      }
+      .user-info{
+        position: absolute;
+        top: 0.32rem;
+        left: 1.8rem;
+        right: 0;
+        height: 0.64rem;
+        margin-right: 0.32rem;
+        .user-name{
+          display: inline-block;
+          padding-right: 0.2rem;
+          font-size: 0.4rem;
+          color: @color-v2-base-black;
+        }
+        .user-company{
+          display: inline-block;
+          padding-left: 0.2rem;
+          padding-right: 0.2rem;
+          font-size: 0.373333rem;
+          color: @color-v2-txt-words;
+          border-left: 1px @color-v2-border solid;
+        }
+        .user-position{
+          display: inline-block;
+          padding-left: 0.2rem;
+          font-size: 0.373333rem;
+          color: @color-v2-txt-words;
+          border-left: 1px @color-v2-border solid;
+        }
+        .send-time{
+          float: right;
+          color: @black-30;
+        }
+      }
+      .message-info{
+        position: absolute;
+        top: 0.933333rem;
+        left: 1.8rem;
+        right: 0;
+        height: 0.64rem;
+        margin-right: 0.32rem;
+        .message-txt{
+          margin-right: 1.6rem;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          color: @color-v2-txt-sub-help;
+          &.exchange-tel{
+            color: @color-v2-base-blue;
+          }
+          &.yaoyue{
+            color: @color-v2-base-blue;
+          }
+          .iconfont{
+            margin-top: 0.053333rem;
+            margin-right: 0.106667rem;
+            font-size: 0.373333rem;
+          }
+        }
+        .message-count{
+          position: absolute;
+          right: 0.2rem;
+          bottom: 0.053333rem;
+          width: 0.626667rem;
+          height: 0.626667rem;
+          &.hasValue{
+            background-color: #ffb501;
+            color: @white;
+            .border-radius(0.626667rem);
+            text-align: center;
+            line-height: 0.626667rem;
+          }
+        }
+      }
+    }
+    &.no-msg{
+      .fitparent(1.866667rem 0 1.533333rem 0);
+      img{
+        margin-top: 2.666667rem;
+        width: 100%;
+        height: auto;
+      }
+      .ali-btn{
+        margin: 0.2rem auto 0 auto;
+        padding: 0.2rem 0;
+        width: 4.266667rem;
+        font-size: 26px;
+      }
+    }
+  }
+  .msg-link{
+    height: 2.533333rem;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1.333333rem;
+    padding-right: 1.333333rem;
+    background-color: @white;
+    .item{
+      padding-top: 0.373333rem;
+      width: 1.466667rem;
+      height: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .icon-wrapper{
+        width: 1.226667rem;
+        height: 1.226667rem;
+        line-height: 1.226667rem;
+        .border-radius(100%);
+        &.green{
+          background-color: @color-v2-base-green;
+        }
+        &.yellow{
+          background-color: @color-v2-base-yellow;
+        }
+        &.blue{
+          background-color: @color-v2-base-blue;
+        }
+        .iconfont{
+          font-size: 0.533333rem;
+          color: @white;
+        }
+      }
+      .des{
+        margin-top: 0.213333rem;
+        font-size: 0.346667rem;
+      }
+    }
+  }
+}

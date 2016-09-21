@@ -3,7 +3,7 @@ var appFunc = require('./appFunc'),
 
 module.exports = {
 
-    domainUrl: "http://192.168.0.115/api/entry",
+    domainUrl: "http://192.168.0.128/api/entry",
 
     search: function(code, array){
         for (var i=0;i< array.length; i++){

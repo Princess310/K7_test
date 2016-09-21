@@ -9,6 +9,7 @@ module.exports = {
         var view = this;
 
         view.$el = $$(".UserCenterView");
+        yaoyueApp.showIndicator();
         // 隐藏个人中心的nav
         userF7View.hideNavbar();
 
@@ -42,6 +43,8 @@ module.exports = {
 
             var html = appFunc.renderTpl(template, data);
             $container.html(html);
+
+            yaoyueApp.hideIndicator();
         }, function(){
 
         })

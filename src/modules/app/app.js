@@ -3,6 +3,8 @@ require('./app.less');
 var appFunc = require('../utils/appFunc'),
     welcome = require('../welcome/welcome'),
     dashboardView = require('../dashboard/dashboard'),
+    businessView = require('../business/business'),
+    messageView = require('../message/message'),
     userView = require('../user/user');
 
 module.exports = {
@@ -17,7 +19,6 @@ module.exports = {
             appFunc.hideToolbar();
         }else {
             appFunc.showMainView();
-            userView.init();
         }
     },
 
@@ -33,6 +34,15 @@ module.exports = {
                 switch (name) {
                     case 'dashboard':
                         dashboardView.init();
+                        break;
+                    case 'business':
+                        businessView.init();
+                        break;
+                    case 'message':
+                        messageView.init();
+                        break;
+                    case 'user':
+                        userView.init();
                         break;
                     case 'login':
                         loginModule.init();

@@ -1,0 +1,84 @@
+<div class="feed-detail-mini do-see-detail" data-id="{{id}}" data-uid="{{uid}}">
+    <section class="feed-detail-left">
+        <a href="index.html#userInfo!id={{uid}}">
+            <div class="user-icon-wrapper">
+                <img class="user-icon" src="{{#suitableImg avatar}}{{/suitableImg}}">
+                {{#check verify_status "===" "1"}}
+                <span class="vip"><span class="iconfont icon-vip1"></span></span>
+                {{/check}}
+            </div>
+        </a>
+    </section>
+    <section class="feed-detail-right">
+        <header class="feed-detail-identity">
+            <span class="username">{{nickname}}</span>
+            {{#check company "!==" ""}}
+            <span class="company">{{company}}</span>
+            {{/check}}
+            {{#check position "!==" ""}}
+            <span class="position">{{position}}</span>
+            {{/check}}
+            <span class="feed-label level-label">V{{integrity_level}}</span>
+            <span class="feed-label honesty-label">{{influence}}</span>
+        </header>
+        <div class="user-role">{{tag_identity_name}}</div>
+        <div class="todo-btn">
+            <span class="iconfont icon-xiangxia"></span>
+        </div>
+        <section class="user-status-wrapper">
+            <div class="user-status-content">
+                <div class="words">{{content}}</div>
+                <div class="pictures">
+                    {{#each pictures}}
+                    <img data-normal="{{#suitableImg this}}{{/suitableImg}}" class="pic lazy {{../img_class}}">
+                    {{/each}}
+                </div>
+            </div>
+            <div class="user-status-time">
+                <div class="time">{{#parseDate created_at}}{{/parseDate}}</div>
+                <!-- <div class="hongbao-info">
+                    <img src="../../resource/img/money.png" >
+                    <span>红包金额剩余20元</span>
+                </div> -->
+            </div>
+            <div class="comments-container">
+                {{#check like_count ">" 0}}
+                <div class="likes-wrapper">
+                    <span class="iconfont icon-iconfontzan"></span>
+                    {{#each likes}}
+                    <span class="like-it">{{this}}</span>
+                    {{/each}}
+                    <span class="count-wrapper">
+						{{#check like_count ">" 5}}
+						等
+						{{/check}}
+						<span class="count">{{like_count}}</span>
+						人觉得赞
+					</span>
+                </div>
+                {{/check}}
+
+                {{#check comment_count ">" 0}}
+                <!-- <div class="comments-wrapper">
+                    {{#each comments}}
+                        <div class="comments-item" data-moments_id="{{moments_id}}" data-uid="{{uid}}" data-id="{{id}}">
+                            {{#check to_name "===" ""}}
+                                <span class="name">{{nickname}}：</span>
+                                {{else}}
+                                <span class="name">{{nickname}} <span class="reply">回复</span> {{to_name}}：</span>
+                            {{/check}}
+
+                            <span class="content">{{content}}</span>
+                        </div>
+                    {{/each}}
+                </div> -->
+                {{/check}}
+            </div>
+            <div class="user-status-operaters">
+                <span class="operater-item comment-btn"><span class="iconfont icon-xiaoxi"></span><span class="count">{{comment_count}}</span></span>
+                <span class="operater-item agree-btn {{#check is_like ">" 0}}active{{/check}}"><span class="iconfont icon-dianzan1"></span><span class="count">{{like_count}}</span></span>
+                <span class="operater-item share-btn"><span class="iconfont icon-fenxiang"></span><span class="count">{{share_count}}</span></span>
+            </div>
+        </section>
+    </section>
+</div>

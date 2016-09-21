@@ -24,6 +24,7 @@ var dashboard = {
     refreshFeedList: function(doRefresh, keyword, page){
         var view = this;
         var $content = view.$el.find(".feed-content");
+        var $scroll = view.$el.find(".infinite-scroll");
 
         keyword = keyword || "";
         page = page || 2;
@@ -37,6 +38,7 @@ var dashboard = {
 
         if(doRefresh){
             $content.html("");
+            yaoyueApp.attachInfiniteScroll($scroll);
         }
 
         service.getFeedList(props, function(result){
@@ -47,9 +49,9 @@ var dashboard = {
 
             if(page.current_page >= page.page_count){
                 // 加载完毕，则注销无限加载事件，以防不必要的加载
-                yaoyueApp.detachInfiniteScroll($$('.infinite-scroll'));
+                yaoyueApp.detachInfiniteScroll($scroll);
                 // 删除加载提示符
-                $$('.infinite-scroll-preloader').remove();
+                view.$el.find('.infinite-scroll-preloader').remove();
             }
 
             // 弹出提示消息
@@ -68,6 +70,8 @@ var dashboard = {
                 $content.append(html);
             }
 
+            // 加载标记重置
+            view.loading = false;
             yaoyueApp.hideIndicator();
             yaoyueApp.pullToRefreshDone();
         }, function(err){
