@@ -28,7 +28,7 @@ module.exports = {
 
             switch(data.verify_status){
                 case 0:
-                    statusInfo = '<span class="iconfont icon-chengweirenzhengyonghu1" style="margin-right: 8px"></span>未认证';
+                    statusInfo = '<span class="fail"><span class="iconfont icon-chengweirenzhengyonghu1" style="margin-right: 8px"></span>未认证</span>';
                     break;
                 case -1:
                     statusInfo = "认证失败";
@@ -40,6 +40,8 @@ module.exports = {
                     statusInfo = "认证成功";
                     break;
             }
+
+            view.$el.find(".authorize-item .item-after").html(statusInfo);
 
             var html = appFunc.renderTpl(template, data);
             $container.html(html);

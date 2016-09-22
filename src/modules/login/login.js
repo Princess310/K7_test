@@ -70,7 +70,6 @@ module.exports = {
 
         var bindings = [{
             element: '.look-pwd',
-            selector: this.$el,
             event: 'click',
             handler: function(e){
                 e.stopPropagation();
@@ -87,7 +86,6 @@ module.exports = {
             }
         }, {
             element: '#input-id',
-            selector: this.$el,
             event: 'keyup',
             handler: function(e){
                 view.refreshBtnStatus(e);
@@ -98,7 +96,6 @@ module.exports = {
             }
         }, {
             element: '#pwd-id',
-            selector: this.$el,
             event: 'keyup',
             handler: function(e){
                 view.refreshBtnStatus(e);
@@ -109,7 +106,6 @@ module.exports = {
             }
         }, {
             element: '.login-btn',
-            selector: this.$el,
             event: 'click',
             handler: function(e){
                 view.doLogin();

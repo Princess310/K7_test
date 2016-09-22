@@ -143,8 +143,8 @@ var dashboard = {
         });
 
         var bindings = [{
-            element: '.top',
-            selector: this.$el,
+            element: view.$el,
+            selector: '.top',
             event: 'click',
             handler: function(e){
                 view.scrollToTop(e);

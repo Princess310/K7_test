@@ -26,9 +26,12 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: 'index.html',
-      minify: false,
-      inject: 'body'
+      filename: 'index.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/message_view.html',
+      filename: 'message_view.html',
+      chunks: []
     }),
     new CopyWebpackPlugin([
       { from: './src/api', to: 'api' },

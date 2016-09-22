@@ -132,6 +132,18 @@ var app = {
         });
         // --------- /parseDate --------- //
 
+        // --------- parseTime --------- //
+        Template7.registerHelper('parseTime', function (value, options) {
+            return date.getParseTime(value);
+        });
+        // --------- /parseTime --------- //
+
+        // --------- parseDay --------- //
+        Template7.registerHelper('parseDay', function (value, options) {
+            return date.getMonthNumber(value) + "月" + date.getDayNumber(value) + "日";
+        });
+        // --------- /parseDay --------- //
+
         window.$$ = Dom7;
         window.yaoyueApp = new Framework7({
             popupCloseByOutside:false,

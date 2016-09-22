@@ -1,0 +1,24 @@
+{{#each list}}
+<div class="timeline">
+    <div class="time">{{#parseTime created_at}}{{/parseTime}}</div>
+</div>
+
+<div class="notice-item">
+    <header class="title">
+        {{title}}
+    </header>
+    <section class="date">
+        {{#parseDay created_at}}{{/parseDay}}
+    </section>
+    <img src="{{image_url}}">
+    <article class="content">
+        <div class="notice-info">
+            {{summary}}
+        </div>
+    </article>
+    <a href="page/browser.html?title=系统通知&id={{id}}&url={{content_url}}" class="read-more">
+        <span>阅读全文</span>
+        <span class="iconfont icon-xiangyou"></span>
+    </a>
+</div>
+{{/each}}

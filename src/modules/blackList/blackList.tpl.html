@@ -1,0 +1,35 @@
+{{#each list}}
+<div class="action-item">
+    <div class="action-wrapper">
+        <div class="feed-detail-mini not-drop-down" data-id="{{id}}">
+            <section class="feed-detail-left">
+                <a href="index.html#userInfo!id={{uid}}">
+                    <div class="user-icon-wrapper">
+                        <img class="user-icon" src="{{#suitableImg avatar}}{{/suitableImg}}">
+                        {{#check verify_status "===" "1"}}
+                        <span class="vip"><span class="iconfont icon-vip1"></span></span>
+                        {{/check}}
+                    </div>
+                </a>
+            </section>
+            <section class="feed-detail-right">
+                <header class="feed-detail-identity">
+                    <span class="username">{{nickname}}</span>
+                    {{#check company "!==" ""}}
+                    <span class="company">{{company}}</span>
+                    {{/check}}
+                    {{#check position "!==" ""}}
+                    <span class="position">{{position}}</span>
+                    {{/check}}
+                    <span class="feed-label level-label">V{{integrity_level}}</span>
+                    <span class="feed-label honesty-label">{{influence}}</span>
+                </header>
+                <div class="user-role">{{tag_identity_name}}</div>
+            </section>
+        </div>
+    </div>
+    <div class="action-wrapper">
+        <div class="action-btn cancel-btn">取消屏蔽</div>
+    </div>
+</div>
+{{/each}}
