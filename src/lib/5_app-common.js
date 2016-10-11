@@ -6,7 +6,7 @@ var app = app || {};
 // Very simple AJAX wrapper that allow us to simply normalize request/response, and eventually put some hooks such as
 // performance and error reporting.
 (function(){
-    var domainUrl = "http://192.168.0.116/api/entry";
+    var domainUrl = "http://192.168.0.108/api/entry";
 
     app.doGet = function(path, data){
         return ajax("GET",path,data);

@@ -5,6 +5,9 @@ var ACCESS_KEY_SECRET = "ApAmZ2VhKIcWzaSYIM6ee9WAa1tb04";
 var BUCKT_NAME = "alijian-yaoyue-uploads-1";
 var DOMAIN = "http://alijian-yaoyue-uploads-1.oss-cn-hangzhou.aliyuncs.com/";
 
+var date = require("./date"),
+    appFunc = require("./appFunc");
+
 module.exports = {
     // 文件模块类型
     module: {
@@ -73,8 +76,8 @@ module.exports = {
     // Chat模块地址
     getChatFolderPath: function(){
         var path = this.module.chat;
-        var prefix = app.date.getRoundTimeStr();
-        var userId = app.getCookie("userid");
+        var prefix = date.getRoundTimeStr();
+        var userId = appFunc.getCookie("userid");
 
         return path + "/" + userId + "/" + prefix;
     },
@@ -82,8 +85,8 @@ module.exports = {
     // Avatar模块地址
     getAvatarFolderPath: function(){
         var path = this.module.avatar;
-        var prefix = app.date.getRoundTimeStr();
-        var userId = app.getCookie("userid");
+        var prefix = date.getRoundTimeStr();
+        var userId = appFunc.getCookie("userid");
 
         return path + "/" + userId + "/" + prefix;
     },
@@ -91,8 +94,8 @@ module.exports = {
     // Moments模块地址
     getMomentsFolderPath: function(){
         var path = this.module.moments;
-        var prefix = app.date.getRoundTimeStr();
-        var userId = app.getCookie("userid");
+        var prefix = date.getRoundTimeStr();
+        var userId = appFunc.getCookie("userid");
 
         return path + "/" + userId + "/" + prefix;
     },
@@ -147,8 +150,8 @@ module.exports = {
 
     // 文件路径转换
     getImgDomain: function(url){
-        var path = app.oss.getSourthRegionPath();
-        var imgPath = app.oss.getImgRegionPath();
+        var path = this.getSourthRegionPath();
+        var imgPath = this.getImgRegionPath();
         var regex = new RegExp(path);
 
         url = url.replace(regex, imgPath);

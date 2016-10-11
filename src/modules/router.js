@@ -16,7 +16,12 @@ var index = require('./app/app'),
     systemNoticeModule = require('./systemNotice/systemNotice'),
     privateModule = require('./private/private'),
     blackListModule = require('./blackList/blackList'),
-    userModule = require('./user/user');
+    resetPasswordModule = require('./resetPassword/resetPassword'),
+    feedbackModule = require('./feedback/feedback'),
+    lookModule = require('./look/look'),
+    userEditModule = require('./userEdit/userEdit'),
+    userModule = require('./user/user'),
+    settingModule = require('./setting/setting');
 
 module.exports = {
     init: function() {
@@ -29,6 +34,10 @@ module.exports = {
         $$(document).on('pageAfterAnimation', function (e) {
             var page = e.detail.page;
             that.pageAfterAnimation(page);
+        });
+
+        $$(document).on('pageBack', function (e) {
+            console.log("back detail", e);
         });
     },
     pageAfterAnimation: function(page){
@@ -82,6 +91,7 @@ module.exports = {
             },
             'setting': function(){
                 appFunc.hideToolbar();
+                settingModule.init();
             },
             'systemNotice': function(){
                 systemNoticeModule.init()
@@ -91,6 +101,18 @@ module.exports = {
             },
             'blackList': function(){
                 blackListModule.init(query)
+            },
+            'resetPassword': function(){
+                resetPasswordModule.init();
+            },
+            'feedback': function(){
+                feedbackModule.init();
+            },
+            'look': function(){
+                lookModule.init(query);
+            },
+            'userEdit': function(){
+                userEditModule.init();
             }
         };
 

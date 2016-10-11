@@ -1,0 +1,142 @@
+<div class="user-avatar-wrapper">
+    <div class="avatar-label">头像</div>
+    <div class="avatar-container">
+        <img class="avatar-img" src="{{avatar}}">
+        <input class="weui_uploader_input" id="avatar-upload" type="file" accept="image/jpg,image/jpeg,image/png,image/gif">
+    </div>
+</div>
+
+<div class="ali-action-panel user-base-info">
+    <div class="action-item">
+        <div class="action-wrapper">
+            <div class="action-name">真实姓名</div>
+        </div>
+        <div class="action-wrapper">
+            <div class="action-info">
+                <input type="text" name="nickname" class="action-input" maxlength="6" placeholder="输入您的姓名(必填)">
+            </div>
+        </div>
+    </div>
+    <div class="action-item">
+        <div class="action-wrapper">
+            <div class="action-name">性别</div>
+        </div>
+        <div class="action-wrapper">
+            <div class="gender-input">
+                <div class="gender-select selected" data-gender="1">
+                    <span class="iconfont icon-gou1"></span>
+                    男
+                </div>
+                <div class="gender-select" data-gender="2">
+                    <span class="iconfont icon-gou2"></span>
+                    女
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="action-item select-industry">
+        <div class="action-wrapper">
+            <div class="action-name">行业方向</div>
+        </div>
+        <div class="action-wrapper">
+            <div class="action-info {{#check industry_son_id "!==" ""}}hide{{/check}}">
+            请选择行业方向
+        </div>
+        <div class="action-value">
+            {{tag_identity_name}}
+        </div>
+        <div class="iconfont icon-youjiantou action-label"></div>
+    </div>
+</div>
+<div class="action-item">
+    <div class="action-wrapper">
+        <div class="action-name">公司</div>
+    </div>
+    <div class="action-wrapper">
+        <div class="action-info">
+            <input type="text" name="company" class="action-input" maxlength="6" placeholder="请输入您的公司名称(必填)">
+        </div>
+    </div>
+</div>
+<div class="action-item">
+    <div class="action-wrapper">
+        <div class="action-name">职位</div>
+    </div>
+    <div class="action-wrapper">
+        <div class="action-info">
+            <input type="text" name="position" class="action-input" maxlength="20" placeholder="请填写您的职位(必填)">
+        </div>
+    </div>
+</div>
+<div class="action-item do-pick-city" data-ctl="company_locate" data-title="工作地区" data-val="{{company_locate}}">
+    <div class="action-wrapper">
+        <div class="action-name">工作地区</div>
+    </div>
+    <div class="action-wrapper">
+        <div class="action-info {{#check company_locate "!==" ""}}hide{{/check}}">
+        请填写您的工作地区
+    </div>
+    <div class="action-value">
+        {{company_locate}}
+    </div>
+    <div class="iconfont icon-youjiantou action-label"></div>
+</div>
+</div>
+<div class="action-item edit-feild" data-ctl="address" data-title="详细地址" data-val="{{address}}" data-limit="200">
+    <div class="action-wrapper">
+        <div class="action-name">详细地址</div>
+    </div>
+    <div class="action-wrapper">
+        <div class="action-info {{#check address "!==" ""}}hide{{/check}}">
+        请填写您的详细地址
+    </div>
+    <div class="action-value">
+        {{address}}
+    </div>
+    <div class="iconfont icon-youjiantou action-label"></div>
+</div>
+</div>
+<div class="action-item no-flex edit-feild" data-ctl="intro" data-title="个人简介" data-val="{{intro}}" data-limit="28">
+    <div class="action-wrapper">
+        <div class="action-name">个人简介</div>
+    </div>
+    <div class="action-wrapper">
+        <div class="action-info {{#check intro "!==" ""}}hide{{/check}}">
+        请填写您的个人简介
+    </div>
+    <div class="action-value">
+        {{intro}}
+    </div>
+</div>
+</div>
+</div>
+
+<div class="panel-des">联系方式</div>
+
+<div class="ali-action-panel">
+    <div class="action-item">
+        <div class="action-wrapper">
+            <div class="action-name">邀约号</div>
+        </div>
+        <div class="action-wrapper">
+            <div class="action-info">
+                <input type="text" class="action-input username-input" maxlength="20" placeholder="输入您的邀约号">
+            </div>
+            <div class="action-btn save-yaoyue">确认</div>
+        </div>
+    </div>
+    <div class="action-item">
+        <div class="action-wrapper">
+            <div class="action-name">手机号</div>
+        </div>
+        <div class="action-wrapper mobile-info">
+            <div class="action-info hide">
+                绑定的手机号
+            </div>
+            <div class="action-value">
+
+            </div>
+            <a href="index.html#resetMobile" class="action-btn">修改</a>
+        </div>
+    </div>
+</div>

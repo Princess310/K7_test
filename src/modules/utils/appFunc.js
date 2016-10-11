@@ -146,7 +146,7 @@ module.exports = {
         return "";
     },
 
-    removeCookie: function(){
+    removeCookie: function(name){
         document.cookie = name + '=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     },
 
@@ -161,5 +161,30 @@ module.exports = {
         str = String(str);
         str = str.length < 2 ? "0"+str : str;
         return str;
+    },
+
+    logout: function(doDirect){
+        this.removeCookie("username");
+        this.removeCookie("userid");
+        this.removeCookie("mobile");
+        this.removeCookie("user_access_token");
+        this.removeCookie("user_chat_id");
+        this.removeCookie("user_chat_pwd");
+
+        var QC = QC || {};
+
+        // logout qq
+        if(QC.Login && QC.Login.check()){
+            QC.Login.signOut();
+        }
+
+        // set the login tag for wedk
+        if(app.wsdk){
+            app.wsdk.isLogin = false;
+        }
+
+        if(doDirect){
+            window.location.reload();
+        }
     }
 };

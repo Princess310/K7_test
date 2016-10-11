@@ -1,0 +1,86 @@
+@import "../../style/less/mixins";
+
+.FeedbackView{
+  .publish-form{
+    background-color: @white;
+    .feild-wrapper{
+      position: relative;
+      .publish-area{
+        padding: 0.32rem;
+        margin-bottom: .293333rem;
+        height: 3.733333rem;
+        width: 100%;
+        font-size: 0.373333rem;
+        border: 0;
+        outline: 0;
+        -webkit-appearance: none;
+        background-color: transparent;
+      }
+      .words-count{
+        position: absolute;
+        right: 0.32rem;
+        bottom: 0.32rem;
+        color: @color-v2-txt-sub-help;
+        font-size: 0.32rem;
+        letter-spacing: 0.026667rem;
+        .count{
+          color: @color-v2-base-blue;
+        }
+      }
+    }
+    .files-container{
+      padding-left: 0.32rem;
+      .weui_uploader_bd{
+        padding-top: 0.213333rem;
+      }
+
+      .weui_uploader_files{
+        .weui_uploader_file{
+          position: relative;
+          width: 2.133333rem;
+          height: 2.133333rem;
+          margin-right: 0.293333rem;
+          margin-bottom: 0.293333rem;
+          .border-radius(4px);
+          .iconfont{
+            position: absolute;
+            top: -0.2rem;
+            right: -0.2rem;
+            font-size: 0.426667rem;
+            color: #b2b1b1;
+          }
+        }
+        .weui_uploader_input_wrp{
+          width: 2.133333rem;
+          height: 2.133333rem;
+          margin-right: 0.293333rem;
+          margin-bottom: 0.293333rem;
+          background-color: #e9edee;
+          .border-radius(4px);
+          .file-count{
+            color: #bac1c4;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0.266667rem;
+            height: 0.533333rem;
+            text-align: center;
+            font-size: 0.48rem;
+          }
+          &:before{
+            top: 0.746667rem;
+            width: 0.186667rem;
+            height: 0.8rem;
+            background-color: #bac1c4;
+          }
+          &:after{
+            top: 0.746667rem;
+            width: 0.8rem;
+            height: 0.186667rem;
+            background-color: #bac1c4;
+          }
+        }
+      }
+    }
+  }
+}

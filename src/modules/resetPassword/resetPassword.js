@@ -1,24 +1,17 @@
-require('./register.less');
+require ('./resetPassword.less');
 
-var appFunc = require('../utils/appFunc'),
-    service = require('./service');
+var service = require('./service'),
+    appFunc = require('../utils/appFunc');
 
 module.exports = {
     init: function(){
         var view = this;
 
-        view.$el  = $$('.RegisterView');
-        view.step = 1;
-        view.callCode = false;
-        view.resetTime = 60;
-        view.verifyCode = 0;
+        appFunc.hideToolbar();
+        view.$el = $$(".ResetPasswordView");
         view.bindEvents();
     },
 
-    /**
-     * [refreshBtnStatus 改变注册按钮的状态]
-     * @return {[Undefined]} [undefined]
-     */
     refreshBtnStatus: function(e){
         var view = this;
         var $item = $$(e.currentTarget);
@@ -31,7 +24,7 @@ module.exports = {
             $icon.removeClass("active");
         }
 
-        if($$("#tel-id").val() !== "" && $$("#pwd-input").val() !== "" && $$("#verify-id").val() !== ""){
+        if($$("#tel-id").val() !== "" && $$("#verify-id").val() !== "" && $$("#pwd-input").val() !== ""){
             $btn.removeClass("disable");
         }else {
             $btn.addClass("disable");
@@ -50,7 +43,7 @@ module.exports = {
         }
 
         var props = {
-            type: 0,
+            type: 1,
             username: username
         };
 
@@ -79,37 +72,11 @@ module.exports = {
         });
     },
 
-    doRegister: function(e){
-        var view = this;
-        var username = view.$el.find("#tel-id").val();
-        var password = view.$el.find("#pwd-input").val();
-        var code = view.$el.find("#verify-id").val();
-
-        var props = {
-            username: username,
-            password:password,
-            code: code
-        };
-
-        service.register(props, function(result){
-            var data = result.data;
-            var token = data.access_token;
-            var userId = data.id;
-
-            appFunc.setCookie("username", username);
-            appFunc.setCookie("userid", userId);
-            appFunc.showMainView();
-        }, function(err){
-            yaoyueApp.alert(err.message, "提示");
-        })
-    },
-
     bindEvents: function(){
         var view = this;
 
         var bindings = [{
             element: '.look-pwd',
-            selector: this.$el,
             event: 'click',
             handler: function(e){
                 e.stopPropagation();
@@ -126,43 +93,39 @@ module.exports = {
             }
         }, {
             element: '#tel-id',
-            selector: this.$el,
             event: 'keyup',
             handler: function(e){
                 view.refreshBtnStatus(e);
 
                 if(e.keyCode == 13){
-                    view.doRegister();
+                    view.doLogin();
                 }
             }
         }, {
             element: '#verify-id',
-            selector: this.$el,
             event: 'keyup',
             handler: function(e){
                 view.refreshBtnStatus(e);
 
                 if(e.keyCode == 13){
-                    view.doRegister();
+                    view.doLogin();
                 }
             }
         }, {
             element: '#pwd-input',
-            selector: this.$el,
             event: 'keyup',
             handler: function(e){
                 view.refreshBtnStatus(e);
 
                 if(e.keyCode == 13){
-                    view.doRegister();
+                    view.doLogin();
                 }
             }
         }, {
-            element: '.register-btn',
-            selector: this.$el,
+            element: '.login-btn',
             event: 'click',
             handler: function(e){
-                view.doRegister();
+                view.doLogin();
             }
         }, {
             element: '.get-verify-code',
